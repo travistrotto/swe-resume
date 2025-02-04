@@ -4,12 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travis Trotto - Front End Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Karla:ital,wght@0,200..800;1,200..800&family=Liter&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <title>Fixed Header and Sidebar</title>
     <style>
         :root {
             --main-bg-color: #121212;
@@ -17,29 +12,23 @@
             --main-text-color: #ececec;
             --alt-text-color: #a8a8a8;
             --tertiary-text-color: #6e6e6e;
-            --default-image-size: 227px;
+            --default-image-size: 150px;
             --alt-border-color: rgb(83, 83, 83);
             --accent-color: #007bff;
             --accent-bg-color: #007bff1a;
         }
 
         * {
-            line-height: 1.5em;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Karla', sans-serif;
+            font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--main-text-color);
-            margin: 0;
-            padding: 0;
-            background-color: var(--main-bg-color);
-
+            height: 100vh;
+            overflow: hidden;
         }
 
         p {
@@ -57,21 +46,27 @@
         }
 
         .header {
-            width: 100%;
-            height: 166px;
-            background-color: var(--accent-color);
             position: fixed;
-            z-index: 1;
-        }
-
-        .container {
-            max-width: 1400px;
-            padding: 3em;
-            margin-top: 4em;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #007bff;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 24px;
         }
 
         .sidebar {
-            z-index: 1;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 40rem;
+            height: calc(100vh - 60px);
+            background: #181818;
+            color: white;
+            padding: 20px;
         }
 
         .sidebar img {
@@ -80,7 +75,6 @@
             border-radius: 26px;
             margin-bottom: 16px;
             border: 2px var(--main-text-color) solid;
-            z-index: 1000;
         }
 
         .sidebar h1 {
@@ -104,134 +98,33 @@
             padding: 8px 16px;
         }
 
-        .sections {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            padding-top: 10em;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .section {
+        .content-container {
+            margin-top: 60px;
+            margin-left: 44%;
+            padding: 20px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
             background: var(--main-bg-color);
-            padding: 24px;
-            position: relative;
-        }
-
-        .section .title-bubble {
-            position: absolute;
-            top: -10px;
-            left: 16px;
-            background: var(--main-bg-color);
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
-        #about a {
-            text-decoration: none;
-            font-weight: normal;
-        }
-
-        #role {
-            font-size: 1.5em;
-            color: var(--main-text-color)
-        }
-
-        .tags p {
-            display: inline-block;
-            background-color: var(--accent-bg-color);
-            color: var(--accent-color);
-            padding: 5px 12px;
-            margin: 5px;
-            border-radius: 12px;
-            font-size: medium;
-        }
-
-        .exp {
-            border-radius: 12px;
-        }
-
-        .exp:hover {
-            background-color: var(--alt-bg-color);
-        }
-
-        /* Common Classes */
-        #desc {
-            color: var(--alt-text-color);
-        }
-
-        .tertiary {
-            color: var(--tertiary-text-color);
-        }
-
-        .text-sm {
-            font-size: medium;
-        }
-
-        .text-xs {
-            font-size: .75rem;
-            line-height: 1rem;
-            text-transform: uppercase;
-        }
-
-        /* Media Queries */
-        @media (min-width: 1168px) {
-
-            .sidebar {
-                position: fixed;
-            }
-
-            .sections {
-                margin-left: 45%;
-                padding-left: 5rem;
-            }
-        }
-
-        @media (max-width: 1168px) {
-
-            html,
-            body {
-                height: 100vh;
-                overflow: hidden;
-            }
-
-            .container {
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-                overflow: hidden;
-            }
-
-            .sidebar {
-                text-align: center;
-            }
-
-            .sections {
-                flex-grow: 1;
-                overflow-y: auto;
-                padding-top: 10em;
-            }
+            width: calc(100% - 250px);
         }
     </style>
 </head>
 
 <body>
     <div class="header"></div>
-    <div class="container">
-        <div class="sidebar">
-            <img src="img/pic.JPG" alt="Travis in Poland.">
-            <h1>Travis Trotto</h1>
-            <p id="role">Software Engineer</p>
-            <p>Experienced in building engaging and inclusive software
-                experiences.</p>
-            <div class="nav text-xs">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-            </div>
+    <div class="sidebar">
+        <img src="img/pic.JPG" alt="Travis in Poland.">
+        <h1>Travis Trotto</h1>
+        <p id="role">Software Engineer</p>
+        <p>Experienced in building engaging and inclusive software
+            experiences.</p>
+        <div class="nav text-xs">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
         </div>
+    </div>
+    <div class="content-container">
         <div class="sections">
             <!-- About -->
             <div class="title-bubble tertiary">ABOUT</div>
@@ -284,8 +177,8 @@
                 </span>
             </div>
 
-            <div class="exp section" id="experience">
-                <p class=" text-xs tertiary">January - July 2023</p>
+            <div class="exp experience section">
+                <p class="text-xs tertiary">January - July 2023</p>
                 <h3 id="job-title" class="text-sm">Wallet - Apple</h3>
                 <h3 class="text-sm tertiary">Software Engineer</h3>
                 <p class="text-sm">Developed internal tools that facilitated research and collaboration. Worked with
