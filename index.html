@@ -10,228 +10,43 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Karla:ital,wght@0,200..800;1,200..800&family=Liter&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <style>
-        :root {
-            --main-bg-color: #121212;
-            --alt-bg-color: #181818;
-            --main-text-color: #ececec;
-            --alt-text-color: #a8a8a8;
-            --tertiary-text-color: #6e6e6e;
-            --default-image-size: 227px;
-            --alt-border-color: rgb(83, 83, 83);
-            --accent-color: #007bff;
-            --accent-bg-color: #007bff1a;
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js",
+          "three/examples/jsm/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.173.0/examples/jsm/controls/OrbitControls.js"
         }
-
-        * {
-            line-height: 1.5em;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Karla', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--main-text-color);
-            margin: 0;
-            padding: 0;
-            background-color: var(--main-bg-color);
-
-        }
-
-        p {
-            color: var(--alt-text-color);
-            margin-bottom: 16px;
-            font-size: large;
-            font-weight: 300;
-        }
-
-        h1,
-        h3,
-        a {
-            font-weight: 300;
-            color: var(--main-text-color);
-        }
-
-        .header {
-            width: 100%;
-            height: 166px;
-            background-color: var(--accent-color);
-            position: fixed;
-            z-index: 1;
-        }
-
-        .container {
-            max-width: 1400px;
-            padding: 3em;
-            margin-top: 4em;
-        }
-
-        .sidebar {
-            z-index: 1;
-        }
-
-        .sidebar img {
-            width: var(--default-image-size);
-            height: var(--default-image-size);
-            border-radius: 26px;
-            margin-bottom: 16px;
-            border: 2px var(--main-text-color) solid;
-            z-index: 1000;
-        }
-
-        .sidebar h1 {
-            font-size: 3em;
-            padding-top: 0.75em;
-            font-weight: bolder;
-        }
-
-        .nav {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            width: 100%;
-            padding-top: 1em;
-            padding-bottom: 1em;
-            font-size: 10px;
-        }
-
-        .nav a {
-            text-decoration: none;
-            padding: 8px 16px;
-        }
-
-        .sections {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            padding-top: 10em;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .section {
-            background: var(--main-bg-color);
-            padding: 24px;
-            position: relative;
-        }
-
-        .section .title-bubble {
-            position: absolute;
-            top: -10px;
-            left: 16px;
-            background: var(--main-bg-color);
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
-        #about a {
-            text-decoration: none;
-            font-weight: normal;
-        }
-
-        #role {
-            font-size: 1.5em;
-            color: var(--main-text-color)
-        }
-
-        .tags p {
-            display: inline-block;
-            background-color: var(--accent-bg-color);
-            color: var(--accent-color);
-            padding: 5px 12px;
-            margin: 5px;
-            border-radius: 12px;
-            font-size: medium;
-        }
-
-        .exp {
-            border-radius: 12px;
-        }
-
-        .exp:hover {
-            background-color: var(--alt-bg-color);
-        }
-
-        /* Common Classes */
-        #desc {
-            color: var(--alt-text-color);
-        }
-
-        .tertiary {
-            color: var(--tertiary-text-color);
-        }
-
-        .text-sm {
-            font-size: medium;
-        }
-
-        .text-xs {
-            font-size: .75rem;
-            line-height: 1rem;
-            text-transform: uppercase;
-        }
-
-        /* Media Queries */
-        @media (min-width: 1168px) {
-
-            .sidebar {
-                position: fixed;
-            }
-
-            .sections {
-                margin-left: 45%;
-                padding-left: 5rem;
-            }
-        }
-
-        @media (max-width: 1168px) {
-
-            html,
-            body {
-                height: 100vh;
-                overflow: hidden;
-            }
-
-            .container {
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-                overflow: hidden;
-            }
-
-            .sidebar {
-                text-align: center;
-            }
-
-            .sections {
-                flex-grow: 1;
-                overflow-y: auto;
-                padding-top: 10em;
-            }
-        }
-    </style>
+      }
+      </script>
+    <script src="script.js" type="module"></script>
 </head>
 
 <body>
     <div class="header"></div>
     <div class="container">
         <div class="sidebar">
-            <img src="img/pic.JPG" alt="Travis in Poland.">
-            <h1>Travis Trotto</h1>
-            <p id="role">Software Engineer</p>
-            <p>Experienced in building engaging and inclusive software
-                experiences.</p>
+            <div class="image-container">
+                <div class="image-overlay"></div>
+                <img src="img/pic.JPG" alt="Travis in Poland.">
+            </div>
+            <div class="scene-role-container">
+                <!-- <div class="scene" id="scene">
+                    <div class="scene-container" id="scene-container"></div>
+                </div> -->
+                <div>
+                    <h1>Travis Trotto</h1>
+                    <p id="role">Software Engineer</p>
+                </div>
+            </div>
+            <p>Experienced in building engaging and inclusive software experiences.</p>
             <div class="nav text-xs">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
             </div>
         </div>
+
         <div class="sections">
             <!-- About -->
             <div class="title-bubble tertiary">ABOUT</div>
@@ -266,38 +81,41 @@
 
             <!-- Experience -->
             <div class="title-bubble tertiary">EXPERIENCE</div>
-            <div class="exp experience section">
-                <p class="text-xs tertiary">July - November 2024</p>
-                <h3 id="job-title" class="text-sm">Machine Learning Research Tools and Infrastructure - Apple</h3>
-                <h3 class="text-sm tertiary">Software Engineer</h3>
-                <p class="text-sm">Developed internal tools that facilitated research and collaboration. Worked with
-                    industry
-                    leading ML
-                    researchers and gained experience with large codebases.</p>
-                <span class="tags">
-                    <p>SwiftUI</p>
-                    <p>HTML</p>
-                    <p>CSS</p>
-                    <p>JavaScript</p>
-                    <p>AIML</p>
-                    <p>Research</p>
-                </span>
+
+            <div class="object section experience-container" id="experience">
+                <img src="img/coreML.png" alt="Apple Logo" class="experience-image">
+                <div class="experience-content">
+                    <p class="text-xs tertiary">July - November 2024/p>
+                    <h3 id="job-title" class="text-sm">Machine Learning Research Tools and Infrastructure - Apple</h3>
+                    <h3 class="text-sm tertiary">Software Engineer</h3>
+                    <p class="text-sm">Developed internal tools that facilitated research and collaboration. Worked with
+                        industry-leading ML researchers and gained experience with large codebases.</p>
+                    <span class="tags">
+                        <p>SwiftUI</p>
+                        <p>HTML</p>
+                        <p>CSS</p>
+                        <p>JavaScript</p>
+                        <p>AIML</p>
+                        <p>Research</p>
+                    </span>
+                </div>
             </div>
 
-            <div class="exp section" id="experience">
-                <p class=" text-xs tertiary">January - July 2023</p>
-                <h3 id="job-title" class="text-sm">Wallet - Apple</h3>
-                <h3 class="text-sm tertiary">Software Engineer</h3>
-                <p class="text-sm">Developed internal tools that facilitated research and collaboration. Worked with
-                    industry
-                    leading ML
-                    researchers and gained experience with large codebases.</p>
-                <span class="tags">
-                    <p>Swift</p>
-                    <p>SwiftUI</p>
-                    <p>JSON</p>
-                    <p>API</p>
-                </span>
+            <div class="object section experience-container" id="experience">
+                <img src="img/wallet.png" alt="Apple Logo" class="experience-image">
+                <div class="experience-content">
+                    <p class="text-xs tertiary">January - July 2023</p>
+                    <h3 id="job-title" class="text-sm">Wallet - Apple</h3>
+                    <h3 class="text-sm tertiary">Software Engineer</h3>
+                    <p class="text-sm">Developed internal tools that facilitated research and collaboration. Worked with
+                        industry-leading ML researchers and gained experience with large codebases.</p>
+                    <span class="tags">
+                        <p>Swift</p>
+                        <p>SwiftUI</p>
+                        <p>JSON</p>
+                        <p>API</p>
+                    </span>
+                </div>
             </div>
             <div class="section">
                 <a href="">
@@ -307,8 +125,24 @@
 
             <!-- Projects -->
             <div class="title-bubble tertiary">PROJECTS</div>
-            <div class="section" id="projects">
-                <p>Showcase your projects here.</p>
+            <div class="object section experience-container" id="experience">
+                <img src="img/mce.png" alt="Apple Logo" class="experience-image">
+                <div class="experience-content">
+                    <h3 id="job-title" class="text-sm">MobileCLIP</h3>
+                    <p class="text-sm">Developed internal tools that facilitated research and collaboration. Worked with
+                        industry
+                        leading ML
+                        researchers and gained experience with large codebases.</p>
+                    <div class="">
+                        <p>Accepted to NeurIPS</p>
+                    </div>
+                    <span class="tags">
+                        <p>Swift</p>
+                        <p>SwiftUI</p>
+                        <p>JSON</p>
+                        <p>API</p>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
