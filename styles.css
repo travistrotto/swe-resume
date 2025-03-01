@@ -9,7 +9,12 @@
     --accent-color: #007bff;
     --accent-bg-color: #007bff1a;
 
-    --light-bg-color: e9e9e9;
+    --light-bg-color: #ffffff;
+    --light-alt-bg-color: #d8d8d8;
+    --dark-text-color: #111111;
+    --light-alt-text-color: #878787;
+    --light-accent-color: #e7511b;
+    --light-accent-bg-color: #e7511b2c;
 }
 
 * {
@@ -27,12 +32,12 @@ body {
     color: var(--main-text-color);
     margin: 0;
     padding: 0;
-    background-color: var(--main-bg-color);
+    background-color: var(--light-bg-color);
 
 }
 
 p {
-    color: var(--alt-text-color);
+    color: var(--light-alt-text-color);
     margin-bottom: 16px;
     font-size: large;
     font-weight: 300;
@@ -42,13 +47,13 @@ h1,
 h3,
 a {
     font-weight: 300;
-    color: var(--main-text-color);
+    color: var(--dark-text-color);
 }
 
 .header {
     width: 100%;
     height: 166px;
-    background-color: var(--accent-color);
+    background-color: var(--light-accent-bg-color);
     position: fixed;
     z-index: 1;
 
@@ -143,6 +148,7 @@ a {
 .nav a {
     text-decoration: none;
     padding: 8px 16px;
+    letter-spacing: 3px;
 }
 
 .sections {
@@ -175,13 +181,13 @@ a {
 
 #role {
     font-size: 1.5em;
-    color: var(--main-text-color)
+    color: var(--dark-text-color)
 }
 
 .tags p {
     display: inline-block;
-    background-color: var(--accent-bg-color);
-    color: var(--accent-color);
+    background-color: var(--light-accent-bg-color);
+    color: var(--light-accent-color);
     padding: 5px 12px;
     margin: 5px;
     border-radius: 12px;
@@ -193,7 +199,7 @@ a {
 }
 
 .object:hover {
-    background-color: var(--alt-bg-color);
+    background-color: var(--light-alt-bg-color);
 }
 
 .experience-container {
@@ -226,7 +232,7 @@ a {
 }
 
 .text-xs {
-    font-size: .75rem;
+    font-size: 0.75rem;
     line-height: 1rem;
     text-transform: uppercase;
 }
